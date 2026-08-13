@@ -12,24 +12,8 @@ public class Main {
         EntityManager em = emf.createEntityManager();
         System.out.println("My Application");
 
-        // Scanner scanner = new Scanner(System.in);
-        // System.out.println("Enter Choice");
-        // int choice = scanner.nextInt();
-        // // scanner.nextLine();
-        // System.out.println(choice);
-
         // actions;
         EntityTransaction tx = em.getTransaction();
-
-
-        
-        Profile profile = new Profile();
-        profile.setProfileId(1);
-        profile.setCity("NYC");
-        profile.setPhone("9566777887");
-        profile.setCountry("USA");
-
-
         tx.begin();
 
         // Add new product
@@ -58,21 +42,38 @@ public class Main {
         // List<Product> products = query.getResultList();
         // products.forEach(System.out::println);
 
-        // TypedQuery<Product> query = em.createQuery("from Product where price > :price", Product.class);
+        // TypedQuery<Product> query = em.createQuery("from Product where price >
+        // :price", Product.class);
         // query.setParameter("price", 120);
         // List<Product> products = query.getResultList();
         // products.forEach(System.out::println);
 
-        User user = new User();
-        user.setName("Mike");
-        user.setEmail("mike@gmail.com");
-        user.setPassword("pass1234");
-        user.setProfile(profile);
 
-        em.persist(user);
+        //One to One Relation
+        // Profile profile = new Profile();
+        // profile.setProfileId(1);
+        // profile.setCity("NYC");
+        // profile.setPhone("9566777887");
+        // profile.setCountry("USA");
+        // User user = new User();
+        // user.setName("Mike");
+        // user.setEmail("mike@gmail.com");
+        // user.setPassword("pass1234");
+        // user.setProfile(profile);
+        // em.persist(user);
 
+
+        //one to many / many to one relation
+        Department dept = new Department();
+        dept.setName("IT");
+        Employee e = new Employee();
+        e.setName("John");
+        e.setSalary(4000);
+        dept.addEmplyee(e);
+        em.persist(dept);
         tx.commit();
         em.close();
         emf.close();
+
     }
 }
