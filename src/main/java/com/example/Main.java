@@ -12,10 +12,25 @@ public class Main {
         //actions;
         EntityTransaction tx = em.getTransaction();
         tx.begin();
+
+        //Add new product
         //Product product = new Product("Product 1",100);
         //em.persist(product);
-         User user = new User("John","john@gmail.com","pass1234");
-        em.persist(user);
+
+        //Find product
+        // Product product = em.find(Product.class,1);
+        // System.out.println(product);
+
+        //Update product
+        // Product product = em.find(Product.class,1);
+        // product.setPrice(500);
+        // System.out.println(product);
+
+        //Delete product
+        // Product product = em.find(Product.class,1);
+        // em.remove(product);
+        
+
         tx.commit();
         em.close();
         emf.close();
