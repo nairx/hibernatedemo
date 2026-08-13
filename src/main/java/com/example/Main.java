@@ -1,6 +1,7 @@
 package com.example;
 import com.example.entity.*;
 import java.util.Scanner;
+import java.util.*;
 
 import jakarta.persistence.*;
 
@@ -11,7 +12,7 @@ public class Main {
         EntityManager em = emf.createEntityManager();
         System.out.println("My Application");
         
-        static Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Enter Choice");
         int choice = scanner.nextInt();
         scanner.nextLine();
