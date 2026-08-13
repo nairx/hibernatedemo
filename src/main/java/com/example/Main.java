@@ -1,8 +1,8 @@
 package com.example;
-import com.example.entity.*;
-import java.util.Scanner;
-import java.util.*;
 
+import com.example.entity.*;
+
+import java.util.*;
 import jakarta.persistence.*;
 
 public class Main {
@@ -11,34 +11,48 @@ public class Main {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("myPersistenceUnit");
         EntityManager em = emf.createEntityManager();
         System.out.println("My Application");
-        
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter Choice");
-        int choice = scanner.nextInt();
-        scanner.nextLine();
-        System.out.println(choice);
 
-        //actions;
+        // Scanner scanner = new Scanner(System.in);
+        // System.out.println("Enter Choice");
+        // int choice = scanner.nextInt();
+        // // scanner.nextLine();
+        // System.out.println(choice);
+
+        // actions;
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
-        //Add new product
-        //Product product = new Product("Product 1",100);
-        //em.persist(product);
+        // Add new product
+        // Product product = new Product("Product 1", 100);
+        // em.persist(product);
+        // Product product = new Product("Product 2", 120);
+        // em.persist(product);
+        // Product product = new Product("Product 3", 140);
+        // em.persist(product);
 
-        //Find product
+        // Find product
         // Product product = em.find(Product.class,1);
         // System.out.println(product);
 
-        //Update product
+        // Update product
         // Product product = em.find(Product.class,1);
         // product.setPrice(500);
         // System.out.println(product);
 
-        //Delete product
+        // Delete product
         // Product product = em.find(Product.class,1);
         // em.remove(product);
-        
+
+        // TypedQuery<Product> query = em.createQuery("from Product where price >
+        // 100",Product.class);
+        // List<Product> products = query.getResultList();
+        // products.forEach(System.out::println);
+
+        TypedQuery<Product> query = em.createQuery("from Product where price > :price", Product.class);
+        query.setParameter("price", 120);
+        List<Product> products = query.getResultList();
+        products.forEach(System.out::println);
+
         tx.commit();
         em.close();
         emf.close();
