@@ -37,10 +37,13 @@ public class Main {
         // Product product = em.find(Product.class,1);
         // em.remove(product);
 
-        // TypedQuery<Product> query = em.createQuery("from Product where price >
-        // 100",Product.class);
+        // TypedQuery<Product> query = em.createQuery("from Product where price > 100",Product.class);
         // List<Product> products = query.getResultList();
         // products.forEach(System.out::println);
+
+        Query query = em.createQuery("update Product set price = 900 where id=2");
+        int count = query.executeUpdate();
+        System.out.println(count + " record updated");
 
         // TypedQuery<Product> query = em.createQuery("from Product where price >
         // :price", Product.class);
@@ -48,8 +51,7 @@ public class Main {
         // List<Product> products = query.getResultList();
         // products.forEach(System.out::println);
 
-
-        //One to One Relation
+        // One to One Relation
         // Profile profile = new Profile();
         // profile.setProfileId(1);
         // profile.setCity("NYC");
@@ -62,15 +64,15 @@ public class Main {
         // user.setProfile(profile);
         // em.persist(user);
 
+        // one to many / many to one relation
+        // Department dept = new Department();
+        // dept.setName("IT");
+        // Employee e = new Employee();
+        // e.setName("John");
+        // e.setSalary(4000);
+        // dept.addEmplyee(e);
+        // em.persist(dept);
 
-        //one to many / many to one relation
-        Department dept = new Department();
-        dept.setName("IT");
-        Employee e = new Employee();
-        e.setName("John");
-        e.setSalary(4000);
-        dept.addEmplyee(e);
-        em.persist(dept);
         tx.commit();
         em.close();
         emf.close();
