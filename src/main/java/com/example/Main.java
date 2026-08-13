@@ -1,5 +1,6 @@
 package com.example;
 import com.example.entity.*;
+import java.util.Scanner;
 
 import jakarta.persistence.*;
 
@@ -9,6 +10,13 @@ public class Main {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("myPersistenceUnit");
         EntityManager em = emf.createEntityManager();
         System.out.println("My Application");
+        
+        static Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter Choice");
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+        System.out.println(choice);
+
         //actions;
         EntityTransaction tx = em.getTransaction();
         tx.begin();
