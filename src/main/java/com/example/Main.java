@@ -20,6 +20,16 @@ public class Main {
 
         // actions;
         EntityTransaction tx = em.getTransaction();
+
+
+        
+        Profile profile = new Profile();
+        profile.setProfileId(1);
+        profile.setCity("NYC");
+        profile.setPhone("9566777887");
+        profile.setCountry("USA");
+
+
         tx.begin();
 
         // Add new product
@@ -48,10 +58,18 @@ public class Main {
         // List<Product> products = query.getResultList();
         // products.forEach(System.out::println);
 
-        TypedQuery<Product> query = em.createQuery("from Product where price > :price", Product.class);
-        query.setParameter("price", 120);
-        List<Product> products = query.getResultList();
-        products.forEach(System.out::println);
+        // TypedQuery<Product> query = em.createQuery("from Product where price > :price", Product.class);
+        // query.setParameter("price", 120);
+        // List<Product> products = query.getResultList();
+        // products.forEach(System.out::println);
+
+        User user = new User();
+        user.setName("Mike");
+        user.setEmail("mike@gmail.com");
+        user.setPassword("pass1234");
+        user.setProfile(profile);
+
+        em.persist(user);
 
         tx.commit();
         em.close();
