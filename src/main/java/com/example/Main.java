@@ -30,7 +30,6 @@ public class Main {
         // Product product = em.find(Product.class,1);
         // em.remove(product);
         
-
         tx.commit();
         em.close();
         emf.close();
