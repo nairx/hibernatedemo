@@ -6,6 +6,7 @@
     <class>com.example.entity.Profile</class>
       <class>com.example.entity.Department</class>
         <class>com.example.entity.Employee</class>
+          <class>com.example.entity.Customer</class>
         <properties>
             <property
                 name="jakarta.persistence.jdbc.driver"

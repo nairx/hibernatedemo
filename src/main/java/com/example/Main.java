@@ -4,6 +4,9 @@ import com.example.entity.*;
 
 import java.util.*;
 import jakarta.persistence.*;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Root;
 
 public class Main {
     public static void main(String[] args) {
@@ -37,13 +40,14 @@ public class Main {
         // Product product = em.find(Product.class,1);
         // em.remove(product);
 
-        // TypedQuery<Product> query = em.createQuery("from Product where price > 100",Product.class);
+        // TypedQuery<Product> query = em.createQuery("from Product where price >
+        // 100",Product.class);
         // List<Product> products = query.getResultList();
         // products.forEach(System.out::println);
 
-        Query query = em.createQuery("update Product set price = 900 where id=2");
-        int count = query.executeUpdate();
-        System.out.println(count + " record updated");
+        // Query query = em.createQuery("update Product set price = 900 where id=2");
+        // int count = query.executeUpdate();
+        // System.out.println(count + " record updated");
 
         // TypedQuery<Product> query = em.createQuery("from Product where price >
         // :price", Product.class);
@@ -72,6 +76,11 @@ public class Main {
         // e.setSalary(4000);
         // dept.addEmplyee(e);
         // em.persist(dept);
+
+
+
+
+   
 
         tx.commit();
         em.close();
