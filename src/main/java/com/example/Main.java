@@ -4,9 +4,7 @@ import com.example.entity.*;
 
 import java.util.*;
 import jakarta.persistence.*;
-import jakarta.persistence.criteria.CriteriaBuilder;
-import jakarta.persistence.criteria.CriteriaQuery;
-import jakarta.persistence.criteria.Root;
+import jakarta.persistence.criteria.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -77,10 +75,13 @@ public class Main {
         // dept.addEmplyee(e);
         // em.persist(dept);
 
-
-
-
-   
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Product> cq = cb.createQuery(Product.class);
+        Root<Product> product = cq.from(Product.class);
+        cq.select(product);
+        List<Product> list = em.createQuery(cq).getResultList();
+        list.forEach(System.out::println);
+    
 
         tx.commit();
         em.close();
