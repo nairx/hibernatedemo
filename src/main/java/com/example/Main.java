@@ -54,17 +54,31 @@ public class Main {
         // products.forEach(System.out::println);
 
         // One to One Relation
-        Profile profile = new Profile();
-        profile.setProfileId(2);
-        profile.setCity("HYD");
-        profile.setPhone("9994354545");
-        profile.setCountry("IND");
-        User user = new User();
-        user.setName("Anubhav");
-        user.setEmail("anubhav@gmail.com");
-        user.setPassword("pass1234");
-        user.setProfile(profile);
-        em.persist(user);
+        // Profile profile = new Profile();
+        // profile.setProfileId(2);
+        // profile.setCity("HYD");
+        // profile.setPhone("9994354545");
+        // profile.setCountry("IND");
+        // User user = new User();
+        // user.setName("Anubhav");
+        // user.setEmail("anubhav@gmail.com");
+        // user.setPassword("pass1234");
+        // user.setProfile(profile);
+        // em.persist(user);
+
+
+        // One to One Relation
+        // Profile profile = new Profile();
+        // profile.setProfileId(4);
+        // profile.setCity("HYD");
+        // profile.setPhone("7994354545");
+        // profile.setCountry("IND");
+        // User user = new User("Sai","sai@gmail.com","pass1234");
+        // user.setProfile(profile);
+        // em.persist(user);
+
+        
+
 
         // one to many / many to one relation
         // Department dept = new Department();
