@@ -54,17 +54,17 @@ public class Main {
         // products.forEach(System.out::println);
 
         // One to One Relation
-        // Profile profile = new Profile();
-        // profile.setProfileId(1);
-        // profile.setCity("NYC");
-        // profile.setPhone("9566777887");
-        // profile.setCountry("USA");
-        // User user = new User();
-        // user.setName("Mike");
-        // user.setEmail("mike@gmail.com");
-        // user.setPassword("pass1234");
-        // user.setProfile(profile);
-        // em.persist(user);
+        Profile profile = new Profile();
+        profile.setProfileId(2);
+        profile.setCity("HYD");
+        profile.setPhone("9994354545");
+        profile.setCountry("IND");
+        User user = new User();
+        user.setName("Anubhav");
+        user.setEmail("anubhav@gmail.com");
+        user.setPassword("pass1234");
+        user.setProfile(profile);
+        em.persist(user);
 
         // one to many / many to one relation
         // Department dept = new Department();
@@ -75,18 +75,18 @@ public class Main {
         // dept.addEmplyee(e);
         // em.persist(dept);
 
-        CriteriaBuilder cb = em.getCriteriaBuilder();
-        CriteriaQuery<Product> cq = cb.createQuery(Product.class);
-        Root<Product> product = cq.from(Product.class);
+        // CriteriaBuilder cb = em.getCriteriaBuilder();
+        // CriteriaQuery<Product> cq = cb.createQuery(Product.class);
+        // Root<Product> product = cq.from(Product.class);
 
         // cq.select(product);
         // cq.select(product).where(cb.gt(product.get("price"),200));
         //cq.select(product).where(cb.equal(product.get("name"),"Product 2"));
-        cq.select(product).where(cb.like(product.get("name"), "PR%"));
+        // cq.select(product).where(cb.like(product.get("name"), "PR%"));
 
 
-        List<Product> products = em.createQuery(cq).getResultList();
-        products.forEach(System.out::println);
+        // List<Product> products = em.createQuery(cq).getResultList();
+        // products.forEach(System.out::println);
     
 
         tx.commit();
