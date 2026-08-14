@@ -78,9 +78,15 @@ public class Main {
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<Product> cq = cb.createQuery(Product.class);
         Root<Product> product = cq.from(Product.class);
-        cq.select(product);
-        List<Product> list = em.createQuery(cq).getResultList();
-        list.forEach(System.out::println);
+
+        // cq.select(product);
+        // cq.select(product).where(cb.gt(product.get("price"),200));
+        //cq.select(product).where(cb.equal(product.get("name"),"Product 2"));
+        cq.select(product).where(cb.like(product.get("name"), "PR%"));
+
+
+        List<Product> products = em.createQuery(cq).getResultList();
+        products.forEach(System.out::println);
     
 
         tx.commit();
