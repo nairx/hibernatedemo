@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 // @Table(name="healthProducts")
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name="product_seq",initialValue = 1001,allocationSize = 1)
     private Long id;
     private String name;
